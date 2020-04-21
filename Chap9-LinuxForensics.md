@@ -51,3 +51,91 @@ Others: CDE, Enlightenment (for graphic devs)
 * First megabyte of physical drive/volume/PV has LVM
 
 ## Linux File System
+
+### Ext
+* Extended File System, current version of ext4. Ext4 can support volumes with sizes up to 1 exabyte and single file with sizes up to 16Tb.
+* On Linux, run >>df -T to find out what file system it's using
+* Ext3 and Ext4 support journaling, journaling = logging.
+* Ext4 level: journal --> ordered --> writeback
+
+### Reiser File System
+* ReiserSF supports journaling, is part of kernel ver 2.4.1
+
+### Bekerley Fast File system
+* = UNIX File System, uses a bitmap to track free clusters to see which are free and what not.
+
+## Logs
+
+### var/log/faillog Log
+* Contains failed user logins --> tracking attempts cracking into the system.
+* Take notes of: number of failed login attempts, timestamps
+
+### var/log/kern.log Log
+* Shows systemwide problem
+* Contains messages from the OS
+
+### /var/log/lpr.log Log
+Contains printer records
+
+### /var/log/mail.* Log
+Contains mail server log
+
+### /var/log/mysql.* Log
+* Contains records related to MySQL database server
+* Can be used to track SQL injection attacks
+
+### /var/log/apache2/* Log
+Contains logs related to Apache server
+
+### /var/log/lighttpd/* Log
+Contains logs related to Lighttpd web server and other activities.
+
+### /var/log/apport.log Log
+Contains records of application crashes. Can be either bugs or malware present.
+
+### What is Snort?
+Open source Intrusion detection system (IDS). There are passive and active system. Passive only log suspicious activities and maybe notify network admin, Active shuts down the suspected attack. Active IDS can be inconvenient to false positives.
+
+## Directories
+
+* **/root**: home directory for root user
+* **/bin**: binaries, compiled files, some malwares might be here
+* **/sbin**: binaries that are not for regular users
+* **/etc**: configuration files like web servers, boot loaders
+* /etc/inittab file: bootup process is set here. initab has: label (unique identification label up to 4 chars), run_level (init level at which entry is executed), action:a (some keywork telling what init gonna take on), process (process that init executes after entering some run level), boot (start process, move on to next entry), bootwait (start process once, waits for it to terminate before starting next initab entry), initdefault (which run level to enter initially?), sysinit (start process first time init reads the table).
+* /dev: interfaces to devices and drives
+* /mnt: floppy and CD-ROM drives are mounted here
+* /boot: files that are critical to booting like boot loader
+* /usr: subdirectories for individual users
+* /var: contains data that is changed during system operation
+* /var/spool: contains the print queue
+* /proc: is not stored on hard disk, it is created in memory and keeps infos about running processes
+
+## Shell commands for Forensics
+
+* **dmesg > file.txt** displays all messages during boot process
+* **fsck** file system check
+* **grep** searches for wide range of parameters
+* **history** allows user to see previously entered commands
+* **mount** mounts a new file system
+* **ps** shows currently running processes for current user, display includes: pid (process id), terminal associated with process (tty), cumulated CPU time in dd-hh:mm:ss, executable name.
+* **pstree** shows all processes in tree structure
+* **top** lists the processes in order of how much CPU time that process is using
+* **kill pid** to kill a process
+* **file** which type of file?
+* **su** puts you in super user mode
+* **who** info about current user
+* **finger** gets back information regarding specific user. combo: finger + who
+* **dd** makes a copy of a drive, example: *dd if=/dev/mem of=/evidence/image.memory1*, it takes /dev/mem and sends it to evidence partition and creates an image of it.
+* **ls** lists contents
+
+## Recovering deleted files?
+
+*inode* is a data structure in the file system that stores information about a file except name and the data. So inode = link to the file
+
+### Manually
+
+A file is deleted when its inode link count reaches 0.
+1. System --> single-user mode, use **init**
+2. grep -b 'search-text' /dev/partition > file.txt or grep -a -B[size before] -A[size after] 'text' /dev/[partition] > file.txt
+3. cat file.txt 
