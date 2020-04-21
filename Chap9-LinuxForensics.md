@@ -138,4 +138,4 @@ Open source Intrusion detection system (IDS). There are passive and active syste
 A file is deleted when its inode link count reaches 0.
 1. System --> single-user mode, use **init**
 2. grep -b 'search-text' /dev/partition > file.txt or grep -a -B[size before] -A[size after] 'text' /dev/[partition] > file.txt
-3. cat file.txt 
+3. cat file.txt
