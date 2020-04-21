@@ -18,3 +18,9 @@ After Apple II, there were:
 * Code names: Cheetah --> Puma --> Jaguar --> Panther --> Tiger --> Leopard --> Snow Leopard --> Lion --> Moutain Lion --> Yosemite --> Sierra --> High Sierra --> Mojave --> Catalina (current October 2019)
 
 ## Mac File System
+
+### MFS - Macintosh File System
+- Was probably replaced with HFS and HFS+
+
+### Hierarchical File System (HFS)
+- 
