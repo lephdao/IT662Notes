@@ -23,4 +23,14 @@ After Apple II, there were:
 - Was probably replaced with HFS and HFS+
 
 ### Hierarchical File System (HFS)
+- Was used on Macintosh Plus to replace MFS 
+
+### HFS+
+- aka HFS Standard comparing to HFS Standard 
+- Supports journaling and disk quotas (limiting users disk usage)
+- Has 2 types of links: hard link and soft link 
+- Differences between HFS and HFS+: HFS+ uses 32 bits allocation blocks, supports long filenames (up to 255 chars), uses Unicode rather than ASCII. 
+- **Aliases**: symbolic pinks, allows user to have multiple references to a single file or directory. 
+- Otimization: defragmentation on a per-file basis, before the file is defragmented, it needs to qualify some conditions. This is an advantage over NTFS and FAT.
+- **Allocation file**: keeps track of which allocation blocks are free and which are not. 0 >> block is free, 1 >> block is in use. Uses B-tree structure to hold the data. Each record in catalog file is 8KB in size. 
 - 
