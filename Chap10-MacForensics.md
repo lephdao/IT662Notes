@@ -52,7 +52,7 @@ Apple File System (APFS) is the default file system for Mac computers using macO
 
 ## Partition Types 
 
-**What?**refers to Apple documents as partition schemes. Apple supports 3 partition schemes: GUID Partition Table, Apple Partition Map, master boot record. 
+**What?** refers to Apple documents as partition schemes. Apple supports 3 partition schemes: GUID Partition Table, Apple Partition Map, master boot record. 
 
 ### GUID Partition Table
 - Globally Unique Identifier is used in computers that have Intel processor, requires OS X v 10.4 or later. 
@@ -135,7 +135,11 @@ Returns the hardware information for the host system, all the attached Serial Ad
 Returns all information about the OS
 
 ## Examine a Mac
+Ideally: create a copy of the forensic image --> mount it as a read-only virtual machine (either using Forensic Explorer and OSForensics)
 
+## Undelete in Mac
+- Depends on how soon after the deletion you attempt to recover the data 
+- How? Trash folder --> go to Trash directory --> copy/move file to original location or using tools.
 
 
 
