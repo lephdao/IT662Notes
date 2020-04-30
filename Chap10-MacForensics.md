@@ -141,5 +141,3 @@ Ideally: create a copy of the forensic image --> mount it as a read-only virtual
 - Depends on how soon after the deletion you attempt to recover the data 
 - How? Trash folder --> go to Trash directory --> copy/move file to original location or using tools.
 
-
-
