@@ -26,7 +26,7 @@ Network Analysis
 - Port scan: sending an ICMP (Internet Control Message Protocol) packet to each port to see if they respond, this is an easy scan but can be bypass. 
 - How to tell if it's a potential port scan: inspecing incoming packets destined for well-known ports with certain flags turned on
 
-**Stealth Scanning
+**Stealth Scanning**
 - You do a stealth scanning when you don't want to establish a 3 way handshake but you still want to get some kind of response from the target. 
 - **FIN scan**: FIN flag indicates communication end. Hacker send packets with FIN flag >> if port is open, error message is generated. 
 - **Christmas Tree Scan**: Hacker sends TCP packet to the target with the URG, PUSH and FIN flags >> alternating bits turned on and off in flag bytes
